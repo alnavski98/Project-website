@@ -1,13 +1,18 @@
 :root {
-    --color-primary: #2563eb;
+    --color-primary: #4a81f8;
     --color-primary-hover: #1d4ed8;
 
     --color-background: #1C1C1E;
     --color-surface: #2C2C2E;
+    --color-surface-hover: #3a3a3c;
 
     --color-heading: #FFFFFF;
     --color-text: #D1D1D6;
+    --color-muted: #8e8e93;
     --color-border: #3A3A3C;
+
+    --color-accent: #4f8ef7;
+    --color-accent-hover: #3d7ae6;
 
     --content-width: 1100px;
 }
@@ -47,7 +52,9 @@ img {
     max-width: 100%;
 }
 
-.page-section {
+.hero, 
+.page-section, 
+.projects-section {
     width: min(92%, var(--content-width));
     margin: 0 auto;
     padding: 4rem 0;

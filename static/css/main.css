@@ -2,12 +2,12 @@
     --color-primary: #2563eb;
     --color-primary-hover: #1d4ed8;
 
-    --color-background: #f8fafc;
-    --color-surface: #ffffff;
+    --color-background: #1C1C1E;
+    --color-surface: #2C2C2E;
 
-    --color-heading: #0f172a;
-    --color-text: #475569;
-    --color-border: #cbd5e1;
+    --color-heading: #FFFFFF;
+    --color-text: #D1D1D6;
+    --color-border: #3A3A3C;
 
     --content-width: 1100px;
 }

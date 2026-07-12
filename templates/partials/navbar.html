@@ -1,0 +1,73 @@
+<header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+        <a
+            class="navbar__logo-link"
+            href="{{ url_for('home') }}"
+            aria-label="Go to home page"
+        >
+            <img
+                class="navbar__logo"
+                src="{{ url_for('static', filename='images/logo.png') }}"
+                alt="Alexander Skinstad logo"
+            >
+        </a>
+
+        <button
+            class="navbar__toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="navbar-menu"
+            aria-label="Open navigation menu"
+        >
+            <span class="navbar__toggle-line"></span>
+            <span class="navbar__toggle-line"></span>
+            <span class="navbar__toggle-line"></span>
+        </button>
+
+        <ul class="navbar__menu" id="navbar-menu">
+            <li>
+                <a
+                    href="{{ url_for('home') }}"
+                    {% if request.endpoint == 'home' %}
+                        aria-current="page"
+                    {% endif %}
+                >
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="{{ url_for('projects') }}"
+                    {% if request.endpoint in ['projects', 'project_detail'] %}
+                        aria-current="page"
+                    {% endif %}
+                >
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="{{ url_for('about') }}"
+                    {% if request.endpoint == 'about' %}
+                        aria-current="page"
+                    {% endif %}
+                >
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="{{ url_for('contact') }}"
+                    {% if request.endpoint == 'contact' %}
+                        aria-current="page"
+                    {% endif %}
+                >
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>

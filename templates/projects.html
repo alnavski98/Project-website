@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+Projects | Alexander Skinstad
+{% endblock %}
+
+{% block styles %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/projects.css') }}"
+>
+{% endblock %}
+
+{% block content %}
+<section class="projects-section">
+    <h1>Projects</h1>
+
+    <div class="project-grid">
+        {% for project in projects %}
+            <article class="project-card">
+                <img
+                    src="{{ url_for(
+                        'static',
+                        filename='images/projects/' + project.thumbnail
+                    ) }}"
+                    alt=""
+                >
+
+                <h2>{{ project.title }}</h2>
+
+                <p>{{ project.summary }}</p>
+
+                <a
+                    href="{{ url_for(
+                        'project_detail',
+                        slug=project.slug
+                    ) }}"
+                >
+                    View project
+                </a>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -21,3 +21,6 @@ Ensure that you at least have python 3.11 installed
 4. Install flask with `pip install flask`
 5. Install the required libraries with `pip install -r requirements.txt`
 
+### Running
+
+To run the application, ensure you are in the root folder and type `python -m flask --app app run --debug`

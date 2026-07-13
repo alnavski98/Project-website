@@ -7,3 +7,4 @@ Flask-Migrate
 Flask-WTF
 email-validator
 Pillow
+gunicorn

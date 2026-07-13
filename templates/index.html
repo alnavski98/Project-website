@@ -18,53 +18,57 @@ Home | Alexander Skinstad
     <div class="home-container home-hero__layout">
         <div class="home-hero__content">
             <p class="section-label">
-                ELECTRONICS · EMBEDDED SYSTEMS · HARDWARE TESTING
+                HOME
             </p>
 
 
-        <h1>
-            I build, test and improve electronic systems.
-        </h1>
+            <h1>
+                Welcome to My Project Portfolio!
+            </h1>
 
-        <p class="home-hero__intro">
-            I am an electronics engineer working with embedded
-            systems, hardware testing, troubleshooting and practical
-            product development.
-        </p>
+            <p class="home-hero__intro">
+                I am an electronics engineer working with hardware testing,
+                troubleshooting, embedded systems and practical
+                product development.
+            </p>
 
-        <div class="home-hero__actions">
-            <a
-                class="home-button home-button--primary"
-                href="{{ url_for('projects') }}"
-            >
-                View projects
-            </a>
+            <p class="home-hero__intro">
+                This website showcases my electronics and embedded-system
+                projects, as well as my professional experience and skills.
 
-            <a
-                class="home-button home-button--secondary"
-                href="{{ url_for('about') }}"
-            >
-                About me
-            </a>
+            </p>
+
+            <div class="home-hero__actions">
+                <a
+                    class="home-button home-button--primary"
+                    href="{{ url_for('projects') }}"
+                >
+                    View projects
+                </a>
+
+                <a
+                    class="home-button home-button--secondary"
+                    href="{{ url_for('about') }}"
+                >
+                    About me
+                </a>
+            </div>
         </div>
+
+        <aside class="home-profile-card">
+            <p class="home-profile-card__label">
+                CURRENT FOCUS
+            </p>
+
+            <ul>
+                <li>Hardware testing</li>
+                <li>Measurements and troubleshooting</li>
+                <li>Prototype development</li>
+                <li>Embedded C</li>
+                <li>Microcontrollers</li>
+            </ul>
+        </aside>
     </div>
-
-    <aside class="home-profile-card">
-        <p class="home-profile-card__label">
-            CURRENT FOCUS
-        </p>
-
-        <ul>
-            <li>Hardware testing</li>
-            <li>Embedded C</li>
-            <li>Microcontrollers</li>
-            <li>Measurements and troubleshooting</li>
-            <li>Prototype development</li>
-        </ul>
-    </aside>
-</div>
-
-
 </section>
 
 <section class="home-section">

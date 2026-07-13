@@ -4,16 +4,193 @@
 Home | Alexander Skinstad
 {% endblock %}
 
+{% block styles %}
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/home.css') }}"
+>
+{% endblock %}
+
 {% block content %}
-<section class="hero">
-    <h1>Embedded Systems and Hardware Test Engineer</h1>
 
-    <p>
-        I design, test and develop embedded hardware and software systems.
-    </p>
+<section class="home-hero">
+    <div class="home-container home-hero__layout">
+        <div class="home-hero__content">
+            <p class="section-label">
+                ELECTRONICS · EMBEDDED SYSTEMS · HARDWARE TESTING
+            </p>
 
-    <a href="{{ url_for('projects') }}">
-        View projects
-    </a>
+
+        <h1>
+            I build, test and improve electronic systems.
+        </h1>
+
+        <p class="home-hero__intro">
+            I am an electronics engineer working with embedded
+            systems, hardware testing, troubleshooting and practical
+            product development.
+        </p>
+
+        <div class="home-hero__actions">
+            <a
+                class="home-button home-button--primary"
+                href="{{ url_for('projects') }}"
+            >
+                View projects
+            </a>
+
+            <a
+                class="home-button home-button--secondary"
+                href="{{ url_for('about') }}"
+            >
+                About me
+            </a>
+        </div>
+    </div>
+
+    <aside class="home-profile-card">
+        <p class="home-profile-card__label">
+            CURRENT FOCUS
+        </p>
+
+        <ul>
+            <li>Hardware testing</li>
+            <li>Embedded C</li>
+            <li>Microcontrollers</li>
+            <li>Measurements and troubleshooting</li>
+            <li>Prototype development</li>
+        </ul>
+    </aside>
+</div>
+
+
 </section>
+
+<section class="home-section">
+    <div class="home-container">
+        <div class="home-section__heading">
+            <div>
+                <p class="section-label">
+                    SELECTED WORK
+                </p>
+
+
+            <h2>
+                Featured projects
+            </h2>
+        </div>
+
+        <a
+            class="home-text-link"
+            href="{{ url_for('projects') }}"
+        >
+            View all projects →
+        </a>
+    </div>
+
+    {% if projects %}
+        <div class="home-project-grid">
+            {% for project in projects %}
+                <article class="home-project-card">
+                    {% if project.thumbnail %}
+                        <a
+                            class="home-project-card__image-link"
+                            href="{{ url_for(
+                                'project_detail',
+                                slug=project.slug
+                            ) }}"
+                        >
+                            <img
+                                class="home-project-card__image"
+                                src="{{ url_for(
+                                    'static',
+                                    filename='images/projects/' + project.thumbnail
+                                ) }}"
+                                alt="{{ project.title }}"
+                            >
+                        </a>
+                    {% endif %}
+
+                    <div class="home-project-card__content">
+                        {% if project.category %}
+                            <p class="home-project-card__category">
+                                {{ project.category }}
+                            </p>
+                        {% endif %}
+
+                        <h3>
+                            <a
+                                href="{{ url_for(
+                                    'project_detail',
+                                    slug=project.slug
+                                ) }}"
+                            >
+                                {{ project.title }}
+                            </a>
+                        </h3>
+
+                        <p>
+                            {{ project.summary }}
+                        </p>
+
+                        <a
+                            class="home-project-card__link"
+                            href="{{ url_for(
+                                'project_detail',
+                                slug=project.slug
+                            ) }}"
+                        >
+                            Read more →
+                        </a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="home-empty-state">
+            <h3>
+                Projects will be added here
+            </h3>
+
+            <p>
+                Featured electronics and embedded-system projects
+                will appear in this section.
+            </p>
+        </div>
+    {% endif %}
+</div>
+
+
+</section>
+
+<section class="home-cta">
+    <div class="home-container home-cta__content">
+        <div>
+            <p class="section-label">
+                CONTACT
+            </p>
+
+
+        <h2>
+            Interested in my work?
+        </h2>
+
+        <p>
+            Contact me to discuss electronics, embedded systems or
+            hardware-testing opportunities.
+        </p>
+    </div>
+
+    <a
+        class="home-button home-button--primary"
+        href="{{ url_for('contact') }}"
+    >
+        Contact me
+    </a>
+</div>
+
+
+</section>
+
 {% endblock %}

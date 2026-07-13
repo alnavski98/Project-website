@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Manage projects | Alexander Skinstad
+{% endblock %}
+
+{% block styles %}
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/admin.css') }}"
+    >
+{% endblock %}
+
+{% block content %}
+<section class="admin-page">
+    <div class="admin-container">
+        <div class="admin-heading">
+            <div>
+                <p class="section-label">
+                    ADMINISTRATION
+                </p>
+
+                <h1>Manage projects</h1>
+            </div>
+
+            <a
+                class="button button--primary"
+                href="{{ url_for('add_project') }}"
+            >
+                Add project
+            </a>
+        </div>
+
+        {% if projects %}
+            <div class="admin-project-list">
+                {% for project in projects %}
+                    <article class="admin-project-card">
+                        <div class="admin-project-card__content">
+                            <p class="admin-project-card__status">
+                                {% if project.published %}
+                                    Published
+                                {% else %}
+                                    Draft
+                                {% endif %}
+
+                                {% if project.featured %}
+                                    · Featured
+                                {% endif %}
+                            </p>
+
+                            <h2>
+                                {{ project.title }}
+                            </h2>
+
+                            <p>
+                                {{ project.summary }}
+                            </p>
+
+                            <small>
+                                /projects/{{ project.slug }}
+                            </small>
+                        </div>
+
+                        <div class="admin-project-card__actions">
+                            <a
+                                class="button"
+                                href="{{ url_for(
+                                    'edit_project',
+                                    project_id=project.id
+                                ) }}"
+                            >
+                                Edit
+                            </a>
+
+                            <form
+                                method="post"
+                                action="{{ url_for(
+                                    'delete_project',
+                                    project_id=project.id
+                                ) }}"
+                                onsubmit="
+                                    return confirm(
+                                        'Delete this project permanently?'
+                                    );
+                                "
+                            >
+                                <button
+                                    class="button button--danger"
+                                    type="submit"
+                                >
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="admin-empty-state">
+                <h2>No projects exist yet</h2>
+
+                <p>
+                    Add your first project using the button above.
+                </p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

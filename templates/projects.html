@@ -12,34 +12,83 @@ Projects | Alexander Skinstad
 {% endblock %}
 
 {% block content %}
-<section class="projects-section">
-    <h1>Projects</h1>
+<section class="projects-page">
+    <div class="projects-container">
+        <header class="projects-header">
+            <p class="section-label">PROJECTS</p>
 
-    <div class="project-grid">
-        {% for project in projects %}
-            <article class="project-card">
-                <img
-                    src="{{ url_for(
-                        'static',
-                        filename='images/projects/' + project.thumbnail
-                    ) }}"
-                    alt=""
-                >
+            <h1>Project Overview</h1>
 
-                <h2>{{ project.title }}</h2>
+            <p>
+                A selection of embedded systems, electronics,
+                firmware and testing projects.
+            </p>
+        </header>
 
-                <p>{{ project.summary }}</p>
+        {% if projects %}
+            <div class="project-grid">
+                {% for project in projects %}
+                    <article class="project-card">
+                        {% if project.thumbnail %}
+                            <a
+                                class="project-card__image-link"
+                                href="{{ url_for(
+                                    'project_detail',
+                                    slug=project.slug
+                                ) }}"
+                            >
+                                <img
+                                    class="project-card__image"
+                                    src="{{ url_for(
+                                        'static',
+                                        filename='images/projects/' +
+                                            project.thumbnail
+                                    ) }}"
+                                    alt="Preview of {{ project.title }}"
+                                >
+                            </a>
+                        {% endif %}
 
-                <a
-                    href="{{ url_for(
-                        'project_detail',
-                        slug=project.slug
-                    ) }}"
-                >
-                    View project
-                </a>
-            </article>
-        {% endfor %}
+                        <div class="project-card__content">
+                            {% if project.category %}
+                                <p class="project-card__category">
+                                    {{ project.category }}
+                                </p>
+                            {% endif %}
+
+                            <h2>
+                                <a
+                                    href="{{ url_for(
+                                        'project_detail',
+                                        slug=project.slug
+                                    ) }}"
+                                >
+                                    {{ project.title }}
+                                </a>
+                            </h2>
+
+                            <p class="project-card__summary">
+                                {{ project.summary }}
+                            </p>
+
+                            <a
+                                class="project-card__link"
+                                href="{{ url_for(
+                                    'project_detail',
+                                    slug=project.slug
+                                ) }}"
+                            >
+                                View project
+                            </a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="projects-empty">
+                No projects have been published yet.
+            </p>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

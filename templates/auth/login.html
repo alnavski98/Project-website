@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Log in | Alexander Skinstad
+{% endblock %}
+
+{% block styles %}
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/auth.css') }}"
+    >
+{% endblock %}
+
+{% block content %}
+<section class="auth-page">
+    <div class="auth-card">
+        <p class="section-label">
+            ADMINISTRATION
+        </p>
+
+        <h1>Log in</h1>
+
+        <p class="auth-card__description">
+            Log in to add, edit and delete portfolio projects.
+        </p>
+
+        <form
+            class="auth-form"
+            method="post"
+        >
+            <input
+                type="hidden"
+                name="next"
+                value="{{ next_page }}"
+            >
+
+            <div class="auth-field">
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    autocomplete="username"
+                    required
+                    autofocus
+                >
+            </div>
+
+            <div class="auth-field">
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <button
+                class="auth-submit"
+                type="submit"
+            >
+                Log in
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}

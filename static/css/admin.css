@@ -1,0 +1,220 @@
+.admin-page {
+    padding: 4rem 0;
+}
+
+.admin-container {
+    width: min(92%, var(--content-width));
+    margin-inline: auto;
+}
+
+.admin-container--form {
+    max-width: 900px;
+}
+
+.admin-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    margin-bottom: 2rem;
+}
+
+.admin-heading h1,
+.admin-container--form h1 {
+    margin-top: 0;
+
+    font-size: clamp(
+        2.2rem,
+        5vw,
+        3.5rem
+    );
+}
+
+.admin-project-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.admin-project-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    padding: 1.5rem;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.admin-project-card__content {
+    min-width: 0;
+}
+
+.admin-project-card h2 {
+    margin: 0.25rem 0;
+}
+
+.admin-project-card p {
+    margin: 0.4rem 0;
+}
+
+.admin-project-card__status,
+.admin-project-card small {
+    color: var(--color-muted);
+}
+
+.admin-project-card__actions,
+.form-actions,
+.form-options {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-project-card__actions {
+    flex: 0 0 auto;
+}
+
+.admin-project-card__actions form {
+    margin: 0;
+}
+
+.button {
+    display: inline-block;
+
+    padding: 0.7rem 1rem;
+
+    color: var(--color-heading);
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    background: var(--color-surface-hover);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.button:hover {
+    filter: brightness(1.1);
+}
+
+.button--primary {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.button--danger {
+    background: #7f1d1d;
+    border-color: #991b1b;
+}
+
+.admin-back-link {
+    display: inline-block;
+
+    margin-bottom: 2rem;
+
+    text-decoration: none;
+}
+
+.admin-empty-state {
+    padding: 2rem;
+
+    text-align: center;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.admin-empty-state h2 {
+    margin-top: 0;
+}
+
+.project-form {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.form-field {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.form-field label {
+    color: var(--color-heading);
+    font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 0.8rem;
+
+    color: var(--color-text);
+    font: inherit;
+
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-field small {
+    color: var(--color-muted);
+}
+
+.form-options {
+    flex-wrap: wrap;
+
+    padding: 0;
+
+    border: 0;
+}
+
+.form-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-options input {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media (max-width: 700px) {
+    .admin-heading,
+    .admin-project-card {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .admin-project-card__actions {
+        flex-wrap: wrap;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ page_title }} | Alexander Skinstad
+{% endblock %}
+
+{% block styles %}
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/admin.css') }}"
+    >
+{% endblock %}
+
+{% block content %}
+<section class="admin-page">
+    <div class="admin-container admin-container--form">
+        <a
+            class="admin-back-link"
+            href="{{ url_for('admin_projects') }}"
+        >
+            ← Back to project administration
+        </a>
+
+        <p class="section-label">
+            ADMINISTRATION
+        </p>
+
+        <h1>
+            {{ page_title }}
+        </h1>
+
+        <form
+            class="project-form"
+            method="post"
+        >
+            <div class="form-field">
+                <label for="title">
+                    Title
+                </label>
+
+                <input
+                    id="title"
+                    name="title"
+                    type="text"
+                    required
+                    value="{{ form_data.title if form_data else '' }}"
+                >
+            </div>
+
+            <div class="form-field">
+                <label for="slug">
+                    Slug
+                </label>
+
+                <input
+                    id="slug"
+                    name="slug"
+                    type="text"
+                    value="{{ form_data.slug if form_data else '' }}"
+                >
+
+                <small>
+                    Leave this blank to generate the slug from the
+                    title. Example: led-baton
+                </small>
+            </div>
+
+            <div class="form-field">
+                <label for="summary">
+                    Summary
+                </label>
+
+                <textarea
+                    id="summary"
+                    name="summary"
+                    rows="4"
+                    required
+                >{{ form_data.summary if form_data else '' }}</textarea>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-field">
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <input
+                        id="category"
+                        name="category"
+                        type="text"
+                        value="{{ form_data.category if form_data else '' }}"
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="thumbnail">
+                        Thumbnail filename
+                    </label>
+
+                    <input
+                        id="thumbnail"
+                        name="thumbnail"
+                        type="text"
+                        value="{{ form_data.thumbnail if form_data else '' }}"
+                    >
+
+                    <small>
+                        Example: led-baton.jpg. Place the image in
+                        static/images/projects/.
+                    </small>
+                </div>
+
+                <div class="form-field">
+                    <label for="display_order">
+                        Display order
+                    </label>
+
+                    <input
+                        id="display_order"
+                        name="display_order"
+                        type="number"
+                        value="{{
+                            form_data.display_order
+                            if form_data
+                            else 0
+                        }}"
+                    >
+
+                    <small>
+                        Projects with lower numbers appear first.
+                    </small>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label for="content">
+                    Project content
+                </label>
+
+                <textarea
+                    id="content"
+                    name="content"
+                    rows="20"
+                    required
+                >{{ form_data.content if form_data else '' }}</textarea>
+
+                <small>
+                    The project content supports Markdown formatting.
+                </small>
+            </div>
+
+            <fieldset class="form-options">
+                <legend class="sr-only">
+                    Project visibility options
+                </legend>
+
+                <label>
+                    <input
+                        name="published"
+                        type="checkbox"
+                        {% if form_data and form_data.published %}
+                            checked
+                        {% endif %}
+                    >
+
+                    Published
+                </label>
+
+                <label>
+                    <input
+                        name="featured"
+                        type="checkbox"
+                        {% if form_data and form_data.featured %}
+                            checked
+                        {% endif %}
+                    >
+
+                    Featured on home page
+                </label>
+            </fieldset>
+
+            <div class="form-actions">
+                <button
+                    class="button button--primary"
+                    type="submit"
+                >
+                    {{ submit_label }}
+                </button>
+
+                <a
+                    class="button"
+                    href="{{ url_for('admin_projects') }}"
+                >
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -4,33 +4,36 @@
     z-index: 1000;
 
     width: 100%;
-    background-color: #1B2023;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    background-color: #1b2023;
+    border-bottom: 1px solid
+        rgba(255, 255, 255, 0.06);
 }
 
 .navbar {
-    min-height: 66px;
-    padding: 0 16px;
-
     display: flex;
     align-items: center;
+
+    min-height: 66px;
+    padding: 0 16px;
 }
 
 .navbar__logo-link {
-    flex: 0 0 auto;
-
     display: flex;
+    flex: 0 0 auto;
     align-items: center;
 
     margin-right: 20px;
+
     text-decoration: none;
 }
 
 .navbar__logo {
+    display: block;
+
     width: 46px;
     height: 46px;
 
-    display: block;
     object-fit: cover;
 
     border-radius: 50%;
@@ -74,14 +77,14 @@
 }
 
 .navbar__menu a[aria-current="page"]::after {
-    content: "";
-
     position: absolute;
-    left: 0;
     right: 0;
     bottom: 0;
+    left: 0;
 
     height: 3px;
+
+    content: "";
 
     background-color: #3b82f6;
     border-radius: 3px 3px 0 0;
@@ -90,20 +93,20 @@
 .navbar__toggle {
     display: none;
 
-    margin-left: auto;
     padding: 8px;
+    margin-left: auto;
+
+    cursor: pointer;
 
     background: transparent;
     border: 0;
-
-    cursor: pointer;
 }
 
 .navbar__toggle-line {
+    display: block;
+
     width: 25px;
     height: 2px;
-
-    display: block;
 
     background-color: #ffffff;
     border-radius: 2px;
@@ -113,15 +116,45 @@
         opacity 180ms ease;
 }
 
-.navbar__toggle-line + .navbar__toggle-line {
+.navbar__toggle-line
++ .navbar__toggle-line {
     margin-top: 6px;
 }
 
+.navbar__logout-form {
+    margin: 0;
+}
+
+.navbar__auth-button {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 66px;
+    padding: 0;
+
+    color: #f3f4f6;
+    font: inherit;
+
+    cursor: pointer;
+
+    background: transparent;
+    border: 0;
+
+    transition: color 160ms ease;
+}
+
+.navbar__auth-button:hover {
+    color: #93c5fd;
+}
+
+
 /* Tablet and mobile */
+
 @media (max-width: 700px) {
     .navbar {
-        min-height: 64px;
         flex-wrap: wrap;
+
+        min-height: 64px;
         padding: 0 16px;
     }
 
@@ -139,13 +172,12 @@
     }
 
     .navbar__menu {
-        width: 100%;
-
         display: none;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
 
+        width: 100%;
         padding: 8px 0 14px;
     }
 
@@ -160,30 +192,45 @@
     .navbar__menu a {
         width: 100%;
         min-height: auto;
-
         padding: 13px 4px;
 
         font-size: 1rem;
     }
 
-    .navbar__menu a[aria-current="page"]::after {
-        left: 0;
+    .navbar__menu
+    a[aria-current="page"]::after {
         right: auto;
         bottom: 6px;
+        left: 0;
 
         width: 34px;
         height: 2px;
     }
 
-    .navbar__toggle.is-open .navbar__toggle-line:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+    .navbar__auth-button {
+        width: 100%;
+        min-height: auto;
+        padding: 13px 4px;
+
+        text-align: left;
     }
 
-    .navbar__toggle.is-open .navbar__toggle-line:nth-child(2) {
+    .navbar__toggle.is-open
+    .navbar__toggle-line:nth-child(1) {
+        transform:
+            translateY(8px)
+            rotate(45deg);
+    }
+
+    .navbar__toggle.is-open
+    .navbar__toggle-line:nth-child(2) {
         opacity: 0;
     }
 
-    .navbar__toggle.is-open .navbar__toggle-line:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+    .navbar__toggle.is-open
+    .navbar__toggle-line:nth-child(3) {
+        transform:
+            translateY(-8px)
+            rotate(-45deg);
     }
 }

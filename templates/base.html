@@ -9,7 +9,9 @@
     >
 
     <title>
-        {% block title %}Alexander Skinstad{% endblock %}
+        {% block title %}
+            Alexander Skinstad
+        {% endblock %}
     </title>
 
     <link
@@ -26,6 +28,7 @@
         rel="stylesheet"
         href="{{ url_for('static', filename='css/footer.css') }}"
     >
+
     {% block styles %}{% endblock %}
 </head>
 
@@ -33,6 +36,23 @@
     {% include "partials/navbar.html" %}
 
     <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-container">
+                    {% for category, message in messages %}
+                        <p
+                            class="
+                                flash-message
+                                flash-message--{{ category }}
+                            "
+                        >
+                            {{ message }}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
         {% block content %}{% endblock %}
     </main>
 

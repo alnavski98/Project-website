@@ -4,13 +4,303 @@
 About | Alexander Skinstad
 {% endblock %}
 
-{% block content %}
-<section class="page-section">
-    <h1>About</h1>
+{% block styles %}
 
-    <p>
-        I am an electronics engineer with experience in embedded systems,
-        hardware testing and practical troubleshooting.
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/about.css') }}"
+>
+{% endblock %}
+
+{% block content %}
+
+<section class="about-hero">
+    <div class="about-container">
+        <p class="section-label">
+            ABOUT ME
+        </p>
+
+
+    <h1>
+        Electronics engineer focused on practical problem solving.
+    </h1>
+
+    <p class="about-hero__lead">
+        I work at the intersection of electronics, embedded systems
+        and hardware testing. I am particularly interested in work
+        where technical analysis is combined with hands-on testing,
+        measurement and development.
     </p>
+</div>
+
+
 </section>
+
+<section class="about-section">
+    <div class="about-container about-introduction">
+        <div>
+            <p class="section-label">
+                BACKGROUND
+            </p>
+
+
+        <h2>
+            Engineering through testing and understanding
+        </h2>
+    </div>
+
+    <div class="about-introduction__text">
+        <p>
+            I have a background in electronics engineering and
+            industrial cybernetics, with experience involving
+            electronic hardware, embedded development, testing and
+            troubleshooting.
+        </p>
+
+        <p>
+            I prefer to understand systems in detail rather than
+            treating individual problems in isolation. This means
+            examining how hardware, firmware, interfaces, power,
+            measurements and operating conditions affect one another.
+        </p>
+
+        <p>
+            My approach is systematic and practical. I value clear
+            requirements, suitable test equipment, documented
+            observations and test procedures that make results
+            reproducible.
+        </p>
+    </div>
+</div>
+
+
+</section>
+
+<section class="about-section about-section--surface">
+    <div class="about-container">
+        <p class="section-label">
+            HOW I WORK
+        </p>
+
+
+    <h2>
+        My engineering approach
+    </h2>
+
+    <div class="about-principle-grid">
+        <article class="about-principle-card">
+            <span>01</span>
+
+            <h3>
+                Understand the system
+            </h3>
+
+            <p>
+                I begin by identifying requirements, interfaces,
+                operating conditions and expected behaviour.
+            </p>
+        </article>
+
+        <article class="about-principle-card">
+            <span>02</span>
+
+            <h3>
+                Measure before assuming
+            </h3>
+
+            <p>
+                I use measurements and observations to separate actual
+                behaviour from assumptions.
+            </p>
+        </article>
+
+        <article class="about-principle-card">
+            <span>03</span>
+
+            <h3>
+                Isolate the cause
+            </h3>
+
+            <p>
+                I break complex problems into smaller testable parts
+                to identify the underlying cause.
+            </p>
+        </article>
+
+        <article class="about-principle-card">
+            <span>04</span>
+
+            <h3>
+                Document the result
+            </h3>
+
+            <p>
+                I document procedures, findings and decisions so that
+                the work can be repeated and improved.
+            </p>
+        </article>
+    </div>
+</div>
+
+
+</section>
+
+<section class="about-section">
+    <div class="about-container about-technical-layout">
+        <div>
+            <p class="section-label">
+                TECHNICAL AREAS
+            </p>
+
+
+        <h2>
+            Technologies and disciplines
+        </h2>
+
+        <p>
+            My experience and project work include hardware,
+            firmware, communication interfaces, testing and
+            technical documentation.
+        </p>
+    </div>
+
+    <div class="about-skill-groups">
+        <article class="about-skill-group">
+            <h3>
+                Electronics and hardware
+            </h3>
+
+            <ul>
+                <li>Electronic measurements</li>
+                <li>Power supplies and battery systems</li>
+                <li>Sensors and signal conditioning</li>
+                <li>Schematic interpretation</li>
+                <li>Prototype assembly and testing</li>
+            </ul>
+        </article>
+
+        <article class="about-skill-group">
+            <h3>
+                Embedded systems
+            </h3>
+
+            <ul>
+                <li>Embedded C</li>
+                <li>AVR microcontrollers</li>
+                <li>UART, I²C and SPI</li>
+                <li>ADC and timer peripherals</li>
+                <li>Firmware debugging</li>
+            </ul>
+        </article>
+
+        <article class="about-skill-group">
+            <h3>
+                Testing and development
+            </h3>
+
+            <ul>
+                <li>Test planning</li>
+                <li>Hardware validation</li>
+                <li>Root-cause investigation</li>
+                <li>Test documentation</li>
+                <li>Technical reporting</li>
+            </ul>
+        </article>
+
+        <article class="about-skill-group">
+            <h3>
+                Software and tools
+            </h3>
+
+            <ul>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>Git and GitHub</li>
+                <li>SQL and SQLite</li>
+                <li>Laboratory test equipment</li>
+            </ul>
+        </article>
+    </div>
+</div>
+
+
+</section>
+
+<section class="about-section about-section--surface">
+    <div class="about-container about-motivation">
+        <div>
+            <p class="section-label">
+                MOTIVATION
+            </p>
+
+
+        <h2>
+            What I look for in technical work
+        </h2>
+    </div>
+
+    <div>
+        <p>
+            I am motivated by roles where I can take ownership of
+            technical problems, investigate systems thoroughly and
+            contribute to practical improvements.
+        </p>
+
+        <p>
+            I work best when there is a short path between identifying
+            a technical need and being able to test it. Access to
+            suitable tools, components and equipment makes it possible
+            to evaluate ideas efficiently and base decisions on
+            measurable results.
+        </p>
+
+        <p>
+            I also value cooperation between hardware, firmware and
+            software disciplines, particularly when responsibilities
+            and technical decisions are communicated clearly.
+        </p>
+    </div>
+</div>
+
+
+</section>
+
+<section class="about-contact">
+    <div class="about-container about-contact__layout">
+        <div>
+            <p class="section-label">
+                NEXT STEP
+            </p>
+
+
+        <h2>
+            See my work or contact me
+        </h2>
+
+        <p>
+            My project pages contain examples of practical electronics,
+            embedded development and technical problem solving.
+        </p>
+    </div>
+
+    <div class="about-contact__actions">
+        <a
+            class="about-button about-button--primary"
+            href="{{ url_for('projects') }}"
+        >
+            View projects
+        </a>
+
+        <a
+            class="about-button"
+            href="{{ url_for('contact') }}"
+        >
+            Contact me
+        </a>
+    </div>
+</div>
+
+
+</section>
+
 {% endblock %}

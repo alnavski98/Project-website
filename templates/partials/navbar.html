@@ -1,5 +1,8 @@
 <header class="site-header">
-    <nav class="navbar" aria-label="Main navigation">
+    <nav
+        class="navbar"
+        aria-label="Main navigation"
+    >
         <a
             class="navbar__logo-link"
             href="{{ url_for('home') }}"
@@ -7,7 +10,7 @@
         >
             <img
                 class="navbar__logo"
-                src="{{ url_for('static', filename='images/logo.png') }}"
+                src="{{ url_for('static', filename='images/logo.jpg') }}"
                 alt="Alexander Skinstad logo"
             >
         </a>
@@ -24,7 +27,10 @@
             <span class="navbar__toggle-line"></span>
         </button>
 
-        <ul class="navbar__menu" id="navbar-menu">
+        <ul
+            class="navbar__menu"
+            id="navbar-menu"
+        >
             <li>
                 <a
                     href="{{ url_for('home') }}"
@@ -39,7 +45,10 @@
             <li>
                 <a
                     href="{{ url_for('projects') }}"
-                    {% if request.endpoint in ['projects', 'project_detail'] %}
+                    {% if request.endpoint in [
+                        'projects',
+                        'project_detail'
+                    ] %}
                         aria-current="page"
                     {% endif %}
                 >
@@ -58,6 +67,23 @@
                 </a>
             </li>
 
+            {% if session.get('admin_logged_in') %}
+                <li>
+                    <a
+                        href="{{ url_for('admin_projects') }}"
+                        {% if request.endpoint in [
+                            'admin_projects',
+                            'add_project',
+                            'edit_project'
+                        ] %}
+                            aria-current="page"
+                        {% endif %}
+                    >
+                        Manage projects
+                    </a>
+                </li>
+            {% endif %}
+
             <li>
                 <a
                     href="{{ url_for('contact') }}"
@@ -68,6 +94,34 @@
                     Contact
                 </a>
             </li>
+
+            {% if session.get('admin_logged_in') %}
+                <li>
+                    <form
+                        class="navbar__logout-form"
+                        method="post"
+                        action="{{ url_for('logout') }}"
+                    >
+                        <button
+                            class="navbar__auth-button"
+                            type="submit"
+                        >
+                            Log out
+                        </button>
+                    </form>
+                </li>
+            {% else %}
+                <li>
+                    <a
+                        href="{{ url_for('login') }}"
+                        {% if request.endpoint == 'login' %}
+                            aria-current="page"
+                        {% endif %}
+                    >
+                        Log in
+                    </a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
 </header>

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ project.title }} | Alexander Skinstad
+{% endblock %}
+
+{% block styles %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/projects.css') }}"
+>
+{% endblock %}
+
+{% block content %}
+<article class="project-detail">
+    <div class="project-detail__container">
+        <a
+            class="project-detail__back"
+            href="{{ url_for('projects') }}"
+        >
+            ← Back to projects
+        </a>
+
+        <header class="project-detail__header">
+            {% if project.category %}
+                <p class="section-label">
+                    {{ project.category }}
+                </p>
+            {% endif %}
+
+            <h1>{{ project.title }}</h1>
+
+            <p class="project-detail__summary">
+                {{ project.summary }}
+            </p>
+        </header>
+
+        {% if project.thumbnail %}
+            <img
+                class="project-detail__hero"
+                src="{{ url_for(
+                    'static',
+                    filename='images/projects/' +
+                        project.thumbnail
+                ) }}"
+                alt="{{ project.title }}"
+            >
+        {% endif %}
+
+        <div class="project-detail__content">
+            {{ project_content | safe }}
+        </div>
+    </div>
+</article>
+{% endblock %}
